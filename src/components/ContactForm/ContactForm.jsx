@@ -1,18 +1,16 @@
 import { Formik, ErrorMessage } from "formik";
 import * as yup from 'yup';
-
 import { nanoid } from "@reduxjs/toolkit";
 import { useSelector, useDispatch } from "react-redux";
-import { getContacts } from "redux/selectors";
+import { selectContacts } from "redux/selectors";
 import { addContact } from "redux/operations";
-
 import { FormStyled, Label, Input, Button, ErrorText } from "./ContactForm.styled";   
 
 
 const ContactForm = () => {
   
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const nameInputId = nanoid();
   const numberInputId = nanoid();
